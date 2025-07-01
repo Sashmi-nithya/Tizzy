@@ -1,0 +1,21 @@
+# Core Libraries
+numpy
+pandas
+matplotlib
+tqdm
+scikit-learn
+
+# Deep Learning
+torch>=2.0.0
+torchvision
+
+# Image Processing
+opencv-python
+Pillow
+
+# Jupyter/Colab Helpers
+notebook
+ipykernel
+
+# Optional (for Google Drive & Google Colab)
+gdown

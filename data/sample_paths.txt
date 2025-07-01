@@ -1,0 +1,3 @@
+images/day_001.png --> masks/day_001_mask.png
+images/day_045.png --> masks/day_045_mask.png
+images/day_292.png --> masks/day_292_mask.png

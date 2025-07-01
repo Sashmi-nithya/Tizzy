@@ -1,0 +1,8 @@
+#save
+torch.save(discriminator.state_dict(), "checkpoints/gan_discriminator.pth")
+
+#load
+from gan.discriminator import Discriminator
+discriminator = Discriminator().to(device)
+discriminator.load_state_dict(torch.load("checkpoints/gan_discriminator.pth"))
+discriminator.eval()

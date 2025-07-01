@@ -1,0 +1,4 @@
+filename, width, height, mask_exists
+day_001.png,256,256,yes
+day_002.png,256,256,yes
+day_003.png,256,256,yes

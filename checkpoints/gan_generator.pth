@@ -1,0 +1,7 @@
+#create
+torch.save(generator.state_dict(), "checkpoints/gan_generator.pth")
+#load
+from gan.generator import Generator
+generator = Generator().to(device)
+generator.load_state_dict(torch.load("checkpoints/gan_generator.pth"))
+generator.eval()
