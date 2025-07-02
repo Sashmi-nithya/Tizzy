@@ -16,31 +16,6 @@ It uses a **Generative Adversarial Network (GAN)** to generate future synthetic 
 
 ---
 
-## 🗂️ Project Directory Structure
-
-Tizzy/
-├── gan/ # GAN model and training code
-│ ├── generator.py # GAN generator model
-│ ├── discriminator.py # GAN discriminator model
-│ ├── gan_utils.py # Utility functions for GAN
-│ └── train_gan.py # Train GAN to generate images
-│
-├── cnn/ # CNN (U-Net) classification module
-│ ├── model_unet.py # U-Net architecture
-│ ├── dataset.py # Dataset loader for CNN
-│ └── train_cnn.py # Train CNN on classified data
-│
-├── scripts/
-│ └── convert_tif_to_png.py # Converts .tif satellite data to .png
-│
-├── checkpoints/ # Folder for saved model weights (.pth)
-├── outputs/ # Folder for output plots and predictions
-├── data/ # Raw and processed satellite image folders
-├── sample_cnn_result.py # Script to visualize CNN classification
-├── requirements.txt # Python package dependencies
-└── README.md # Project overview and documentation
-
----
 
 ## ⚙️ Setup Instructions
 
