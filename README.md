@@ -1,10 +1,8 @@
- README.md — Full Version
-markdown
-Copy code
+
 # 🌦️ Tizzy: Climate Forecasting for Tamil Nadu using GAN & CNN
 
 **Tizzy** is a deep learning project designed to **forecast regional climate changes** in Tamil Nadu (India) using satellite imagery and AI models.  
-It uses a **Generative Adversarial Network (GAN)** to generate future synthetic climate images (2026–2050) and a **U-Net CNN** to classify those images into regions like **Cold**, **Warm**, and **Severe** based on past climate data (2000–2025).
+It uses a **Generative Adversarial Network (GAN)** to generate future synthetic climate images (2026–2050) and a **U-Net CNN** to classify those images into regions like **Cold**, **Warm**, and **Severe** based on past climate data (2000–2024).
 
 ---
 
@@ -22,28 +20,25 @@ It uses a **Generative Adversarial Network (GAN)** to generate future synthetic 
 
 Tizzy/
 ├── gan/
-│ ├── generator.py # GAN generator model
-│ ├── discriminator.py # GAN discriminator model
-│ ├── gan_utils.py # GAN utilities
-│ └── train_gan.py # Train GAN on historical data
+│   ├── generator.py              # GAN generator model
+│   ├── discriminator.py          # GAN discriminator model
+│   ├── gan_utils.py              # GAN utilities
+│   └── train_gan.py              # Train GAN on historical data
 │
 ├── cnn/
-│ ├── model_unet.py # U-Net CNN model
-│ ├── dataset.py # Dataset loader for CNN
-│ └── train_cnn.py # Train CNN to classify images
+│   ├── model_unet.py             # U-Net CNN model
+│   ├── dataset.py                # Dataset loader for CNN
+│   └── train_cnn.py              # Train CNN to classify images
 │
 ├── scripts/
-│ └── convert_tif_to_png.py # Converts MODIS .tif to .png
+│   └── convert_tif_to_png.py     # Converts MODIS .tif to .png
 │
-├── checkpoints/ # Pretrained .pth model files (add manually)
-├── outputs/ # Visual predictions (classified maps)
-├── data/ # Raw and processed satellite images
-├── sample_cnn_result.py # Visualize classification result
-├── requirements.txt # All required Python packages
+├── checkpoints/                  # Pretrained .pth model files (add manually)
+├── outputs/                      # Visual predictions (classified maps)
+├── data/                         # Raw and processed satellite images
+├── sample_cnn_result.py          # Visualize classification result
+├── requirements.txt              # All required Python packages
 └── README.md
-
-yaml
-Copy code
 
 ---
 
@@ -54,85 +49,103 @@ Copy code
 ```bash
 git clone https://github.com/Sashmi-nithya/Tizzy.git
 cd Tizzy
-✅ Step 2: Install Dependencies
+```
+
+### ✅ Step 2: Install Dependencies
+
 Make sure you are using Python 3.8+.
 
-bash
-Copy code
+```bash
 pip install -r requirements.txt
+```
+
 Or, if you want to use a virtual environment:
 
-bash
-Copy code
+```bash
 python -m venv venv
 source venv/bin/activate  # or venv\Scripts\activate on Windows
 pip install -r requirements.txt
-🛰️ Dataset Preparation
-Download .tif satellite images of Tamil Nadu (2000–2025) using MODIS from Google Earth Engine.
+```
 
-Place them into data/tif/.
+---
 
-➤ Convert .tif to .png (for GAN training):
-bash
-Copy code
+## 🛰️ Dataset Preparation
+
+Download `.tif` satellite images of Tamil Nadu (2000–2025) using MODIS from Google Earth Engine.  
+Place them into `data/tif/`.
+
+### ➤ Convert `.tif` to `.png` (for GAN training):
+```bash
 python scripts/convert_tif_to_png.py
-The converted images will be stored in data/png/ or tamilnadu_png_images/.
+```
 
-🧠 Train the GAN (to forecast 2026–2050)
-bash
-Copy code
+The converted images will be stored in `data/png/` or `tamilnadu_png_images/`.
+
+---
+
+## 🧠 Train the GAN (to forecast 2026–2050)
+
+```bash
 python gan/train_gan.py
-This:
+```
 
-Trains the GAN on 2000–2025 .png images
+This trains the GAN on 2000–2025 `.png` images and saves synthetic 2026–2050 climate images into `tamilnadu_gan_images/`.
 
-Saves generated 2026–2050 climate images into tamilnadu_gan_images/
+---
 
-🎯 Train CNN to Classify (Cold, Warm, Severe)
-bash
-Copy code
+## 🎯 Train CNN to Classify (Cold, Warm, Severe)
+
+```bash
 python cnn/train_cnn.py
-Ensure you have corresponding masks (/masks) for training.
+```
 
-🖼️ Visualize Output from CNN
-bash
-Copy code
+> Ensure you have corresponding masks in the `/masks` folder.
+
+---
+
+## 🖼️ Visualize Output from CNN
+
+```bash
 python sample_cnn_result.py
+```
+
 This script shows:
+- Original input image
+- Ground truth mask
+- Predicted temperature classification
 
-Original input image
+---
 
-Ground truth mask
+## ✅ Pretrained Models
 
-Predicted temperature classification
+Model weights (`.pth`) should be placed in:
 
-📸 Output Example
-GAN Input (Day)	Predicted Temperature Map
-
-✅ Pretrained Models
-Model weights (.pth) should be placed in:
-
-bash
-Copy code
+```
 checkpoints/
 ├── gan/generator.pth
 ├── gan_discriminator/discriminator.pth
 └── cnn/unet_classifier.pth
-These files are not included in the repo. Please download them from the Google Drive link and place them manually.
+```
 
-👩‍💻 Author
-Nithya Shree R.
-GitHub: @Sashmi-nithya
+These files are **not included in the repo**. Please download them from the Google Drive link and place them manually.
 
-📄 License
-This project is licensed under the MIT License.
+---
 
-🙌 Acknowledgements
-MODIS Satellite Data
+## 👩‍💻 Author
 
-Google Earth Engine
+**Nithya Shree R.**  
+GitHub: [@Sashmi-nithya](https://github.com/Sashmi-nithya)
 
-PyTorch, Matplotlib, Rasterio, and OpenCV
+---
 
-vbnet
-Copy code
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## 🙌 Acknowledgements
+
+- MODIS Satellite Data  
+- Google Earth Engine  
+- PyTorch, Matplotlib, Rasterio, OpenCV
