@@ -1,8 +1,0 @@
-#save
-torch.save(model.state_dict(), "checkpoints/unet_classifier.pth")
-
-#load
-from cnn.model_unet import UNet
-model = UNet(in_channels=3, out_classes=10).to(device)
-model.load_state_dict(torch.load("checkpoints/unet_classifier.pth"))
-model.eval()
